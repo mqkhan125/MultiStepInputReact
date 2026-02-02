@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 122px;
+  gap: 12px;
+}
+
+form label{
+  font-size: 22px;
+  font-weight: 500; 
+}
+
+form input {
+  width: 250px;
+  height: 18px;
+  padding: 9px;
+  font-size: 17px;
+  border-radius: 8px;
+}
+
+form button {
+  width: 90px;
+  height: 30px;
+  border: none;
+  background-color: skyblue;
+  font-size: 18px;
+  color: white;
+  border-radius: 4px;
+}
+
