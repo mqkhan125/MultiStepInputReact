@@ -1,31 +1,167 @@
-form {
+.multistep-container {
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin: 122px;
-  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f6f8;
 }
 
-form label{
-  font-size: 22px;
-  font-weight: 500; 
-}
-
-form input {
-  width: 250px;
-  height: 18px;
-  padding: 9px;
-  font-size: 17px;
+.multistep-form {
+  background: #ffffff;
+  padding: 30px;
+  width: 350px;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-form button {
-  width: 90px;
-  height: 30px;
+.multistep-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.multistep-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.multistep-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.multistep-form input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.multistep-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
   border: none;
-  background-color: skyblue;
-  font-size: 18px;
-  color: white;
-  border-radius: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
+.multistep-form button:hover {
+  background: #0056b3;
+}
+
+.step-count {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===============================
+   index.css (for DisplayData)
+   =============================== */
+
+.display-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.display-card {
+  background: #ffffff;
+  width: 380px;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.display-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #1f2937;
+}
+
+.display-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.display-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.back-btn {
+  flex: 1;
+  padding: 10px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #e5e7eb;
+}
+
+.back-btn:active {
+  transform: scale(0.97);
+}
+
+.next-btn {
+  flex: 1;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  background: #0056b3;
+}

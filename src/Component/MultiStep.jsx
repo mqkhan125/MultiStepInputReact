@@ -1,48 +1,106 @@
-import React from 'react'
+import React, { useState } from "react";
+import DisplayData from "./DisplayData";
 
 const MultiStep = () => {
+  const data = [
+    {
+      id: "name",
+      buttonName: "Next",
+      placeholder: "Enter your name",
+      inputText: "text",
+      label: "Name",
+    },
+    {
+      id: "email",
+      buttonName: "Next",
+      placeholder: "Enter your email",
+      inputText: "email",
+      label: "Email",
+    },
+    {
+      id: "password",
+      buttonName: "Next",
+      placeholder: "Enter your password",
+      inputText: "password",
+      label: "Password",
+    },
+    {
+      id: "dob",
+      buttonName: "Submit",
+      placeholder: "Enter your DOB",
+      inputText: "date",
+      label: "DOB",
+    },
+  ];
 
-    const data = [
+  const [step, setStep] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    dob: "",
+  });
 
-        {
-           id: 'name',
-           buttonName: 'Next',
-           placeholder: 'Enter your name',
-           inputText: 'text',
-           label: 'Name',
-       },
-        {
-           id: 'email',
-           buttonName: 'Next',
-           placeholder: 'Enter your email',
-           inputText: 'email',
-           label: 'Email',
-       },
-       {
-           id: 'password',
-           buttonName: 'Next',
-           placeholder: 'Enter your password',
-           inputText: 'password',
-           label: 'Password'
-       },
-       {
-          id: 'dob',
-          buttonName: 'Submit',
-          placeholder: 'Enter your dob',
-          inputText: 'date',
-          label: 'DOB'
-      }
-    ]
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStep((prev) => prev + 1);
+  };
+
+  const handleBackBtn = () => {
+    setStep((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   return (
-    <div>
-    <form action="">
-        <label htmlFor=""></label>
-        <input type="text" name="" id="" placeholder='Enter Your name' />
-        <button>Next</button>
-    </form>
-    </div>
-  )
-}
+    <>
+      {step < data.length ? (
+        <div className="multistep-container">
+          <form className="multistep-form" onSubmit={handleSubmit}>
+            <h2>Multi Step Form</h2>
 
-export default MultiStep
+            <label>{data[step].label}</label>
+            <input
+              type={data[step].inputText}
+              placeholder={data[step].placeholder}
+              name={data[step].id}
+              value={formData[data[step].id]}
+              onChange={handleInput}
+              required
+            />
+
+            <p className="step-count">
+              Step {step + 1} of {data.length}
+            </p>
+
+            <div className="form-actions">
+              {step > 0 && (
+                <button
+                  type="button"
+                  className="back-btn"
+                  onClick={handleBackBtn}
+                >
+                  ← Back
+                </button>
+              )}
+
+              <button type="submit" className="next-btn">
+                {data[step].buttonName}
+              </button>
+            </div>
+          </form>
+        </div>
+      ) : (
+        <DisplayData formData={formData} />
+      )}
+    </>
+  );
+};
+
+export default MultiStep;
