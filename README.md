@@ -1,6 +1,11 @@
 # MultiStepInputReact
 
 A modern, responsive multi-step form built with React that guides users through entering information step by step. MultiStepInputReact focuses on clean architecture, easy navigation with a Back button, and a polished user experience using industry‑standard frontend practices.
+---
+---
+<img width="475" height="320" alt="form-1" src="https://github.com/user-attachments/assets/95cd29f2-f6e2-485d-8761-6caa8119dd5a" />
+<img width="447" height="314" alt="form-2" src="https://github.com/user-attachments/assets/3cccfd2b-c3e8-4883-b663-7d022719cae0" />
+<img width="478" height="368" alt="form-3" src="https://github.com/user-attachments/assets/e6688524-6da5-4870-bf74-e765a891f4b0" />
 
 ---
 
