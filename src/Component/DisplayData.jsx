@@ -1,8 +1,9 @@
-const DisplayData = ({ formData , step , setStep}) => {
+const DisplayData = ({ formData , onClose}) => {
 
   return (
     <div className="display-container">
       <div className="display-card">
+        <button className="close" onClick={onClose}>❌</button>
         <h2 className="display-title">Submitted Details</h2>
 
         <div className="display-row">

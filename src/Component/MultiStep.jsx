@@ -33,7 +33,8 @@ const MultiStep = () => {
     },
   ];
 
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(0)
+  const [showDisplay, setShowDisplay] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,7 +44,12 @@ const MultiStep = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStep((prev) => prev + 1);
+
+    if(step === data.length-1){
+        setShowDisplay(true)
+    }else{
+        setStep((prev) => prev + 1);
+    }
   };
 
   const handleBackBtn = () => {
@@ -60,7 +66,15 @@ const MultiStep = () => {
 
   return (
     <>
-      {step < data.length ? (
+      {showDisplay ? (
+        <DisplayData
+          formData={formData}
+          onClose={() => {
+            setShowDisplay(false);
+            setStep(0);
+          }}
+        />
+      ) : (
         <div className="multistep-container">
           <form className="multistep-form" onSubmit={handleSubmit}>
             <h2>Multi Step Form</h2>
@@ -96,8 +110,6 @@ const MultiStep = () => {
             </div>
           </form>
         </div>
-      ) : (
-        <DisplayData formData={formData} />
       )}
     </>
   );
